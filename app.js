@@ -8,7 +8,7 @@ form.addEventListener("submit", addTask)
 taskList.addEventListener("click", deleteTask);
 delTasksBtn.addEventListener("click", deleteTasks);
 
-function deleteTasks(e){
+function deleteTasks(){
     while(taskList.firstChild){
         taskList.removeChild(taskList.firstChild);
     }
