@@ -2,13 +2,25 @@
 const form = document.querySelector("form");
 const taskInput = document.querySelector("#task");
 const taskList =document.querySelector(".collection");
+const delTasksBtn = document.querySelector("#del-tasks");
+
 form.addEventListener("submit", addTask)
 taskList.addEventListener("click", deleteTask);
+delTasksBtn.addEventListener("click", deleteTasks);
+
+function deleteTasks(e){
+    while(taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+
+}
+
+
 function deleteTask(e){
     if(e.target.textContent =="x")
         if(confirm("Do You want to delete this task?")){
             console.log(e.target.parentElement.remove())
-        };
+        }
 }
 
 function addTask(e) {
@@ -24,7 +36,7 @@ function addTask(e) {
     li.appendChild(text);
     //create link element
     const link = document.createElement("a");
-    //set href atribute
+    //set href attribute
     link.setAttribute("href","#")
     //add css style
     link.className = "secondary-content";
