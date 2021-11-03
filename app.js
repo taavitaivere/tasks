@@ -12,9 +12,18 @@ function deleteTasks(){
     while(taskList.firstChild){
         taskList.removeChild(taskList.firstChild);
     }
+    deleteAllTaskFromLocalStorage();
 
 }
-
+function deleteAllTaskFromLocalStorage(){
+    //localStorage.clear();
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+        tasks = [];
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    localStorage.removeItem("tasks");
+}
 
 function deleteTask(e) {
     if (e.target.textContent == "x"){
